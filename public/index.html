@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Products</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Product Catalog</h1>
+      <button id="openModal">Add Product</button>
+    </header>
+
+    <main>
+      <ul id="productList" class="product-list"></ul>
+
+      <!-- 👇 Date Button Section -->
+      
+    </main>
+
+    <!-- Modal -->
+    <div id="modal" class="modal" aria-hidden="true">
+      <div class="modal-overlay" data-close="true"></div>
+      <div
+        class="modal-content"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modalTitle"
+      >
+        <button class="btn-close" id="closeModal" aria-label="Close">×</button>
+        <h2 id="modalTitle">Add Product</h2>
+        <form id="productForm" novalidate>
+          <label>
+            Name
+            <input name="name" required autocomplete="off" />
+            <small class="field-error" data-for="name"></small>
+          </label>
+          <label>
+            Price
+            <input
+              name="price"
+              required
+              type="number"
+              step="0.01"
+              min="0"
+              inputmode="decimal"
+            />
+            <small class="field-error" data-for="price"></small>
+          </label>
+          <div class="modal-actions">
+            <button type="submit">Add</button>
+            <button type="button" class="btn-secondary" data-close="true">
+              Cancel
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <footer class="footer">© 2025 Product API</footer>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,237 @@
+:root {
+  --bg: #f4f7fb;
+  --card: #ffffff;
+  --accent: #2563eb;
+  --accent-hover: #1e4ed8;
+  --muted: #6b7280;
+  --text: #1e293b;
+  --border: #e2e8f0;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  --radius: 10px;
+  --transition: all 0.25s ease-in-out;
+}
+
+/* Reset & Base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* Header */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background: linear-gradient(90deg, #fff, #f9fafc);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+h1 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+button {
+  background: var(--accent);
+  color: #fff;
+  border: 0;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: var(--transition);
+}
+
+button:hover {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+}
+
+main {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Product Grid */
+.product-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.product-list li {
+  background: var(--card);
+  padding: 1.25rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.product-list li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.product-list img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  margin-bottom: 0.75rem;
+}
+
+.product-list h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.product-list .price {
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+/* Add Product Modal */
+.modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  z-index: 1000;
+}
+
+.modal[aria-hidden="false"] {
+  display: flex;
+}
+
+.modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.modal[aria-hidden="false"] .modal-overlay {
+  opacity: 1;
+}
+
+.modal-content {
+  background: var(--card);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  min-width: 340px;
+  max-width: 520px;
+  transform: translateY(-10px) scale(0.98);
+  opacity: 0;
+  transition: var(--transition);
+  position: relative;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.modal[aria-hidden="false"] .modal-content {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+
+.modal-content form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.modal-content label {
+  font-size: 0.9rem;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.modal-content input {
+  padding: 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  transition: var(--transition);
+}
+
+.modal-content input:focus {
+  border-color: var(--accent);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+}
+
+.modal-actions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: flex-end;
+  margin-top: 0.75rem;
+}
+
+.modal-actions button[type="button"] {
+  background: #e5e7eb;
+  color: #111;
+  transition: var(--transition);
+}
+
+.modal-actions button[type="button"]:hover {
+  background: #d1d5db;
+}
+
+/* Close Button */
+.btn-close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background: transparent;
+  border: none;
+  font-size: 1.4rem;
+  line-height: 1;
+  color: var(--muted);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-close:hover {
+  color: var(--accent);
+}
+
+/* Error Text */
+.field-error {
+  color: #dc2626;
+  font-size: 0.8rem;
+  min-height: 1em;
+}
+
+/* Footer */
+.footer {
+  padding: 1rem;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+  background: #fff;
+  box-shadow: 0 -1px 6px rgba(0, 0, 0, 0.04);
+  margin-top: 2rem;
+}
