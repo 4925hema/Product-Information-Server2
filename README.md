@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Simple Product API
 
 This small Node.js + Express API serves product data and allows adding new products.
@@ -39,3 +40,6 @@ POST a new product:
 ```cmd
 curl -X POST http://localhost:4000/products -H "Content-Type: application/json" -d "{\"name\":\"New Item\", \"price\":19.99}"
 ```
+=======
+# Product-Information-Server2
+>>>>>>> c87952114a74af5c91f4c29cf1579070e5ccaf1b
